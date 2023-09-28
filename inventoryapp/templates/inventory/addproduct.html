@@ -1,0 +1,40 @@
+{% extends "inventory/baselayout.html" %} {% block content %}
+<div class="container mt-5">
+  <h2>Add Product</h2>
+  <form method="post" action="/inventory/addproduct/" class="form-signin">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name:</label
+      ><input type="text" class="form-control" id="name" name="name" />
+    </div>
+    <div class="form-group">
+      <label for="costperitem">Cost Per Item:</label
+      ><input
+        type="text"
+        class="form-control"
+        id="costperitem"
+        name="costperitem"
+      />
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity In Stock:</label
+      ><input
+        type="number"
+        class="form-control"
+        id="quantity"
+        name="quantity"
+      />
+    </div>
+    <div class="form-group">
+      <label for="quantitysold">Quantity Sold:</label
+      ><input
+        type="number"
+        class="form-control"
+        id="quantitysold"
+        name="quantitysold"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Product</button>
+  </form>
+</div>
+{% endblock %}

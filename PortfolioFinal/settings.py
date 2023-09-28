@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'store',
-    'todo'
+    'todo',
+    'spellchecker',
+    'inventoryapp'
 ]
 
 MIDDLEWARE = [

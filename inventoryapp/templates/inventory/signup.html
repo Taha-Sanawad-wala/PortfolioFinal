@@ -1,0 +1,37 @@
+{% extends "inventory/baselayout.html" %} {% block content %}
+      <div class="container-fluid">
+      {% if error %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{error}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endif %}
+      {% if success %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{success}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endif %}
+    </div>
+    <div class="text-center" >
+      <form method="post" action="/inventory/signup/"  class="form-signin">
+            {% csrf_token %}
+        <img class="mb-4" src="https://otus.com/wp-content/uploads/2020/10/K-12-LMS-Logo-01.png" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Please Sign Up</h1>
+        <label for="inputEmail" class="sr-only">User Name</label>
+        <input type="text" name="name"  id="inputName" class="form-control" placeholder="User name" required autofocus>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" name="email"  id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary navcolor btn-block" type="submit">Sign up</button>
+        <br>
+        <a href="/inventory/login/"><button class="btn btn-lg  btn-primary navcolor button-link btn-block"  type="button" >Log In</button></a>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2022</p>
+      </form>
+    </div>
+{% endblock %}

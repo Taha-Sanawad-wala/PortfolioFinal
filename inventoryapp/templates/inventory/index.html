@@ -1,0 +1,48 @@
+{% extends "inventory/baselayout.html" %} {% block content %}
+      {% if request.session.InventoryUser %}
+      <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>HII!!! {{request.session.InventoryUser}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endif %}
+
+    <div class="content-section pt-3">
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="navcolor" style="color:white">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity In Stock</th>
+                <th scope="col">Quantity Sold</th>
+                <th scope="col">Cost Per Item</th>
+                <th scope="col">Sales/Revenue</th>
+                <th scope="col">Stock Date</th>
+                <th scope="col">Last Sales Date</th>
+                <th scope="col">edit</th>
+                <th scope="col">delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for inventory in inventories %}
+                {% comment %} <tr style='cursor: pointer; cursor: hand;' onclick="window.location=`{% url 'per_product' inventory.id %}`"> {% endcomment %}
+                  <tr style='cursor: pointer; cursor: hand;'>
+    
+                  <th scope="row">{{ forloop.counter }}</th>
+                  <th scope="col">{{ inventory.name }}</th>
+                  <th scope="col">{{ inventory.quantity_in_stock }}</th>
+                  <th scope="col">{{ inventory.quantity_sold }}</th>
+                  <th scope="col">{{ inventory.cost_per_item }}</th>
+                  <th scope="col">{{ inventory.sales }}</th>
+                  <th scope="col">{{ inventory.stock_date }}</th>
+                  <th scope="col">{{ inventory.last_sales_date }}</th>
+                  <th scope="col"><a href="/inventory/update/{{inventory.id}}"><button class="btn fa fa-edit" ></button></a></th>
+                  <th scope="col"><a href="/inventory/delete/{{inventory.id}}"><button class="btn fa fa-trash-o" ></button></a></th>
+                </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
