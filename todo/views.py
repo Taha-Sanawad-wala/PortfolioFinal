@@ -11,7 +11,7 @@ def home(request):
         print(todos)
         return render(request , 'todo/index.html' , context={'form' : form , 'todos' : todos})
     else:
-        return render(request,'todo/login.html')
+        return render(request , 'todo/index.html')
 
 def login(request):
     if request.method=='GET':
@@ -57,8 +57,8 @@ def add_todo(request):
             todo = TODO(title=data['title'],status=data['status'],priority=data['priority'],user=x)
             todo.save()
             return redirect("home_todo")
-        else: 
-            return render(request , 'todo/index.html' , context={'form' : form})
+    else: 
+            return render(request , 'todo/login.html')
 
 def delete_todo(request , id ):
     print(id)
