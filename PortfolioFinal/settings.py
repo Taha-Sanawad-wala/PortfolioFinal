@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'app',
     'store',
     'todo',
-    'spellchecker',
     'inventoryapp'
 ]
 
