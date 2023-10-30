@@ -23,5 +23,4 @@ urlpatterns = [
     path('app/',include('app.urls')),
     path('',include('store.urls')),
     path('todo/',include('todo.urls')),
-    path('inventory/',include('inventoryapp.urls'))
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
