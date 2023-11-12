@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'app',
     'store',
     'todo',
+    'rtlsapp.apps.RtlsappConfig',
 ]
 
 MIDDLEWARE = [
