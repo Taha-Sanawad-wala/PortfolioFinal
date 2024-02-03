@@ -73,12 +73,12 @@
       <hr class="star-portfolio">
       <div class="row">
         {% for i in data %}
-				<div class="col-md-6 col-xs-12 col-sm-6 portfolio-card-holder">
-					<div class=" portfolio-card">
+				<div class="col-md-4 col-xs-6 col-sm-6 portfolio-card-holder">
+					<div class="portfolio-card">
 						<a href={{i.demolink}}><img src={{i.image.url}} alt="Portfolio" class="img-responsive portfolio-img">
             </a>
-						<div class="portfolio-img-desc">
-							<a href={{i.link}}><p>Click here to get the source code--> {{i.project_name}}</p></a>
+						<div class="portfolio-img-desc" style="height:50px; overflow:hidden">
+              Click here to get the source code: <a href={{i.link}}>{{i.project_name}}</a>
 						</div>		
 					</div>
 				</div>
