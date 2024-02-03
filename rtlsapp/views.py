@@ -25,6 +25,7 @@ def index(request,connection_msg=None):
 def materialRequestScreen(request):
     if request.method=='GET':
         plant,material,assembly,assembly_under_process,tags=getReqData()
+        print(plant,material,assembly,assembly_under_process,tags)
         tagsInUse=MaterialPullLog.objects.filter(processed='X').values_list('tagId',flat=True)
         tagAvailable=list(set(tags)-set(tagsInUse))
         data={'plantdata':plant,

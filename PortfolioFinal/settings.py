@@ -37,10 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # internal
+    "graphene_django",
+    'rest_framework',
+    'rest_framework.authtoken',
+    'drf_spectacular',
+    # external
     'app',
     'store',
     'todo',
     'rtlsapp.apps.RtlsappConfig',
+    'graphQLApp',
+    'vms_api'
 ]
 
 MIDDLEWARE = [
@@ -103,7 +111,20 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+'DEFAULT_AUTHENTICATION_CLASSES': (
+'rest_framework.authentication.TokenAuthentication',
+),
+'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
 
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Vendor Management System',
+    'DESCRIPTION': 'VMS system as per FatMug Assessment..!!! <br> <a href="/app/portfolio"> back to portfolio</a>',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
